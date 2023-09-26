@@ -1,11 +1,14 @@
 import br.com.alura.screenmatch.calculos.CalculadoraDeTempo;
+import br.com.alura.screenmatch.calculos.FiltroRecomendacao;
+import br.com.alura.screenmatch.modelos.Episodio;
 import br.com.alura.screenmatch.modelos.Filme;
 import br.com.alura.screenmatch.modelos.Serie;
+//import br.com.alura.screenmatch.modelos.Titulo;
 
 public class App {
     public static void main(String[] args) throws Exception {
 
-        //Titulo favorito = new Titulo();
+        //Titulo titulo = new Titulo();
 
         Filme meuFilme = new Filme();
         
@@ -17,9 +20,9 @@ public class App {
         System.out.println("Duração do filme " + meuFilme.getDuracaoEmMinutos());
 
         meuFilme.exibirAFichaTecnica();
-        meuFilme.avaliar(9);
-        meuFilme.avaliar(8);
-        meuFilme.avaliar(9);
+        meuFilme.avaliar(1);
+        meuFilme.avaliar(3);
+        meuFilme.avaliar(1);
 
         System.out.println("Média de avaliações do filme: " + meuFilme.pegarMedia());
 
@@ -41,9 +44,26 @@ public class App {
         outroFilme.setAnoDeLancamento(1991);
         outroFilme.setDuracaoEmMinutos(180);
         outroFilme.setIncluidoNoPlano(true);
+        outroFilme.avaliar(10);
+        outroFilme.avaliar(9);
+        outroFilme.avaliar(10);
 
         CalculadoraDeTempo calculadora = new CalculadoraDeTempo();
         calculadora.inclui(meuFilme);
+        calculadora.inclui(outroFilme);
+        calculadora.inclui(silo);
         System.out.println(calculadora.getTempoTotal());
+
+        FiltroRecomendacao filtro = new FiltroRecomendacao();
+        filtro.filtra(meuFilme);
+        filtro.filtra(outroFilme);
+
+        Episodio episodio = new Episodio();
+        episodio.setNumero(1);
+        episodio.setNome("Silo");
+        episodio.setTotalDeVisualizacoes(300);
+        filtro.filtra(episodio);
+
+
     }
 }

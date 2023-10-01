@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 import br.com.alura.screenmatch.calculos.CalculadoraDeTempo;
 import br.com.alura.screenmatch.calculos.FiltroRecomendacao;
 import br.com.alura.screenmatch.modelos.Episodio;
@@ -64,6 +66,21 @@ public class App {
         episodio.setTotalDeVisualizacoes(300);
         filtro.filtra(episodio);
 
+        Filme filmeTerror = new Filme();
+        filmeTerror.setNome("Exorcista");
+        filmeTerror.setDuracaoEmMinutos(200);
+        filmeTerror.setAnoDeLancamento(1970);
+        filmeTerror.avaliar(10);
+
+        ArrayList<Filme>listaFilmes = new ArrayList<>();
+        listaFilmes.add(filmeTerror);
+        listaFilmes.add(meuFilme);
+        listaFilmes.add(outroFilme);
+        System.out.println("Tamanho da lista: " + listaFilmes.size());
+        System.out.println("Primeiro filme: " + listaFilmes.get(0).getNome());
+        System.out.println(listaFilmes);
+
+        //Parou na aula 01.Coleção de filmes - aula Entendendo a hierarquia de classes e métodos
 
     }
 }

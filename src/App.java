@@ -6,16 +6,13 @@ import br.com.alura.screenmatch.modelos.Episodio;
 import br.com.alura.screenmatch.modelos.Filme;
 import br.com.alura.screenmatch.modelos.Serie;
 //import br.com.alura.screenmatch.modelos.Titulo;
+//import br.com.alura.screenmatch.modelos.Titulo;
 
 public class App {
     public static void main(String[] args) throws Exception {
 
         //Titulo titulo = new Titulo();
-
-        Filme meuFilme = new Filme();
-        
-        meuFilme.setNome("Matrix");
-        meuFilme.setAnoDeLancamento(1999);
+        Filme meuFilme = new Filme("Matrix", 1999);
         meuFilme.setDuracaoEmMinutos(135);
         meuFilme.setIncluidoNoPlano(true);
 
@@ -28,10 +25,8 @@ public class App {
 
         System.out.println("Média de avaliações do filme: " + meuFilme.pegarMedia());
 
-        Serie silo = new Serie();
+        Serie silo = new Serie("Silo", 2023);
 
-        silo.setNome("Silo");
-        silo.setAnoDeLancamento(2023);
         silo.exibirAFichaTecnica();
         silo.setMinutosPorEpisodio(50);
         silo.setTemporadas(10);
@@ -40,10 +35,8 @@ public class App {
         System.out.println("Duração do filme: " + meuFilme.getDuracaoEmMinutos());
         System.out.println("Duração para maratonar Silo: " + silo.getDuracaoEmMinutos());
 
-        Filme outroFilme = new Filme();
+        Filme outroFilme = new Filme("Rambo III", 1991);
 
-        outroFilme.setNome("Rambo III");
-        outroFilme.setAnoDeLancamento(1991);
         outroFilme.setDuracaoEmMinutos(180);
         outroFilme.setIncluidoNoPlano(true);
         outroFilme.avaliar(10);
@@ -66,10 +59,8 @@ public class App {
         episodio.setTotalDeVisualizacoes(300);
         filtro.filtra(episodio);
 
-        Filme filmeTerror = new Filme();
-        filmeTerror.setNome("Exorcista");
+        Filme filmeTerror = new Filme("Jurassic Park", 1993);
         filmeTerror.setDuracaoEmMinutos(200);
-        filmeTerror.setAnoDeLancamento(1970);
         filmeTerror.avaliar(10);
 
         ArrayList<Filme>listaFilmes = new ArrayList<>();
@@ -79,6 +70,7 @@ public class App {
         System.out.println("Tamanho da lista: " + listaFilmes.size());
         System.out.println("Primeiro filme: " + listaFilmes.get(0).getNome());
         System.out.println(listaFilmes);
+        System.out.println("toString do filme: " + listaFilmes.get(0).toString());
 
         //Parou na aula 01.Coleção de filmes - aula Entendendo a hierarquia de classes e métodos
 
